@@ -1,0 +1,26 @@
+<div class="row text-center">
+  <div class="col-md-3 col-sm-6 product-item">
+    <div class="thumbnail" [ngClass]="{over: outOfStock()}">
+      <img [src]="detailProduct.photo" alt="">
+      <div class="caption">
+        <h3>{{detailProduct.title | uppercase }} - {{detailProduct.price | currency:'EUR'}}</h3>
+        <p>{{detailProduct.description}}</p>
+        <p *ngIf="detailProduct.stock === 1"[ngClass]="{last: isTheLast()}">
+          Dernier disponible
+        </p>
+        <p>
+          <button class="btn btn-primary" (click)="addTobasket(detailProduct)" [disabled]="detailProduct.stock === 0">Add to Cart</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row text-center">
+  <ng-container *ngFor="let product of products | sort:sortKey">
+    <div *ngIf="detailProduct?.title !== product?.title">
+    <app-product *ngIf="product.stock !== 0" (addToBasket)="addTobasket(product)" [data]="product">
+    </app-product>
+    </div>
+  </ng-container>
+</div>
