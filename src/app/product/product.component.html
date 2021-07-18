@@ -1,11 +1,11 @@
-<div class="col-md-3 col-sm-6 product-item">
+<div class="col-md-3 col-sm-6 product-item" [ngClass]="{over:outOfStock()}">
   <div class="thumbnail" [ngClass]="{last: isTheLast()}">
     <img [src]="data.photo" alt="">
     <div class="caption">
       <h3>{{data.title | uppercase }} - {{data.price | currency:'EUR'}}</h3>
       <p>{{data.description}}</p>
       <p>
-        <button class="btn btn-primary" (click)="addToBasketClick()">Add to Cart</button>
+        <button class="btn btn-primary" (click)="addToBasketClick()" [disabled]="data.stock === 0">Add to Cart</button>
         <button class="btn btn-primary viewproduct" [routerLink] = "['/product', data.id]">Details</button>
       </p>
     </div>

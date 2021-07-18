@@ -1,5 +1,5 @@
 .last {
-    color: rgba(255, 0, 0, 0.4);
+  color: rgba(255, 0, 0, 0.4);
   }
 
 .over {
@@ -9,3 +9,7 @@
     -ms-filter: grayscale(100%);
     -o-filter: grayscale(100%);
   }
+
+.container {
+  width: 35em;
+}

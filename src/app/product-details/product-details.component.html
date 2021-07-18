@@ -1,5 +1,5 @@
-<div class="row text-center">
-  <div class="col-md-3 col-sm-6 product-item">
+<div class="row text-center ">
+  <div class="col-md-3 col-sm-6 product-item container">
     <div class="thumbnail" [ngClass]="{over: outOfStock()}">
       <img [src]="detailProduct.photo" alt="">
       <div class="caption">
@@ -19,7 +19,7 @@
 <div class="row text-center">
   <ng-container *ngFor="let product of products | sort:sortKey">
     <div *ngIf="detailProduct?.title !== product?.title">
-    <app-product *ngIf="product.stock !== 0" (addToBasket)="addTobasket(product)" [data]="product">
+    <app-product [data]="product" (addToBasket)="addTobasket(product)">
     </app-product>
     </div>
   </ng-container>
